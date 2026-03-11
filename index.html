@@ -7,14 +7,14 @@
   <meta name="description" content="Blue Stream Solutions LLC builds practical software tools for meetings, notes, and productivity." />
   <style>
     :root {
-      --bg: #f7fbff;
+      --bg: #ffffff;
       --card: #ffffff;
-      --text: #10233a;
-      --muted: #5c6f82;
+      --text: #1b2f4a;
+      --muted: #62748a;
       --accent: #1677d2;
       --accent-dark: #0f5ca3;
-      --border: #dbe8f4;
-      --shadow: 0 10px 30px rgba(16, 35, 58, 0.08);
+      --border: #e6edf5;
+      --shadow: 0 8px 24px rgba(16, 35, 58, 0.06);
       --radius: 18px;
       --max: 1080px;
     }
@@ -25,9 +25,7 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(22, 119, 210, 0.12), transparent 25%),
-        linear-gradient(180deg, #f9fcff 0%, #eef6fd 100%);
+      background: #ffffff;
       line-height: 1.6;
     }
 
@@ -40,7 +38,9 @@
     }
 
     header {
-      padding: 22px 0;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      background: #ffffff;
     }
 
     .nav {
@@ -226,22 +226,18 @@
   </header>
 
   <main id="top">
-    <section>
-      <div class="container">
-        <div class="card section-card" style="padding: 24px; display: flex; justify-content: center;">
-          <img src="bluestreamsolutionsllc.png" alt="Blue Stream Solutions LLC logo" style="max-width: 100%; width: 520px; height: auto; border-radius: 12px;" />
+    <section class="hero">
+      <div class="container" style="padding-top: 20px;">
+        <div class="card section-card" style="padding: 24px; display: flex; justify-content: center; margin-bottom: 20px;">
+          <img src="bluestreamsolutionsllc.png" alt="Blue Stream Solutions LLC logo" style="max-width: 100%; width: 500px; height: auto; border-radius: 12px;" />
         </div>
       </div>
-    </section>
-
-    <section class="hero">
       <div class="container hero-wrap">
         <div class="card hero-main">
           <span class="eyebrow">Software products for productivity</span>
-          <h1>Building practical software tools for meetings, notes, and productivity.</h1>
+          <h1>Building Practical Software for Meetings &amp; Productivity</h1>
           <p class="lead">
-            Blue Stream Solutions LLC builds software designed to help people capture conversations,
-            organize information, and save time.
+            Blue Stream Solutions LLC creates software to help you record, transcribe, and summarize conversations.
           </p>
           <div class="cta-row">
             <a class="btn btn-primary" href="#contact">Contact Us</a>
@@ -250,39 +246,19 @@
         </div>
 
         <aside class="card hero-side">
-          <div style="display: flex; justify-content: center; margin-bottom: 18px;">
-            <img src="bluemic.png" alt="Blue Mic logo" style="max-width: 100%; width: 260px; height: auto; border-radius: 12px;" />
+          <div style="display: flex; justify-content: center; margin-bottom: 8px;">
+            <img src="bluemic.png" alt="Blue Mic logo" style="max-width: 100%; width: 250px; height: auto;" />
           </div>
-          <h3>Introducing Blue Mic</h3>
-          <p class="muted">
-            Blue Mic is an iPhone app focused on helping users record meetings and interviews,
-            generate transcripts, and create concise summaries.
-          </p>
-          <ul class="feature-list">
-            <li>Audio recording for meetings and interviews</li>
-            <li>AI-powered transcription and summaries</li>
-            <li>Smart naming and organization</li>
-            <li>Privacy-conscious product direction</li>
-          </ul>
         </aside>
       </div>
     </section>
 
     <section id="about">
-      <div class="container grid-2">
-        <div class="card section-card">
-          <h2>About Blue Stream Solutions</h2>
-          <p class="muted">
-            Blue Stream Solutions LLC develops software products that help people work more efficiently
-            with conversations, notes, and information. Our focus is on building practical, easy-to-use
-            tools that support everyday productivity.
-          </p>
-        </div>
-        <div class="card section-card">
-          <h2>What We’re Building</h2>
-          <p class="muted">
-            We are building software intended to simplify note capture, improve organization, and help
-            users get more value from meetings, interviews, and spoken information.
+      <div class="container" style="padding-top: 20px;">
+        <div class="card section-card" style="border-top-left-radius: 18px; border-top-right-radius: 18px; border-bottom-left-radius: 0; border-bottom-right-radius: 0; box-shadow: none; border-bottom: none;">
+          <h2 style="font-size: 28px;">About Blue Stream Solutions</h2>
+          <p class="muted" style="max-width: 52ch; font-size: 18px;">
+            We build simple, useful software to help you manage meetings, notes, and information.
           </p>
         </div>
       </div>
@@ -290,59 +266,28 @@
 
     <section id="product">
       <div class="container">
-        <div class="card section-card">
-          <div style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 24px; align-items: center;">
-            <div style="display: flex; justify-content: center;">
-              <img src="bluemic.png" alt="Blue Mic product logo" style="max-width: 100%; width: 320px; height: auto; border-radius: 12px;" />
-            </div>
-            <div>
-              <h2>Blue Mic</h2>
-              <p class="muted">
-                Blue Mic is a product of Blue Stream Solutions LLC. It is designed as an iPhone app to help users
-                record conversations, generate transcripts, and review concise summaries more efficiently.
-              </p>
-            </div>
+        <div class="card section-card" style="border-radius: 0; box-shadow: none; border-top: 1px solid var(--border); border-bottom: none;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <img src="bluemic.png" alt="Blue Mic icon" style="width: 40px; height: 40px; object-fit: contain;" />
+            <h2 style="font-size: 28px; margin: 0;">Blue Mic</h2>
           </div>
-          <div class="mini-grid">
-            <div class="mini">
-              <h3>Recording</h3>
-              <p class="muted">Capture meetings and interviews in a simple, focused mobile experience.</p>
-            </div>
-            <div class="mini">
-              <h3>Transcription</h3>
-              <p class="muted">Turn audio into text to make notes easier to review and organize.</p>
-            </div>
-            <div class="mini">
-              <h3>Summaries</h3>
-              <p class="muted">Highlight key takeaways and reduce the time needed to review conversations.</p>
-            </div>
-            <div class="mini">
-              <h3>Organization</h3>
-              <p class="muted">Support better naming, sorting, and retrieval of saved recordings and notes.</p>
-            </div>
+          <p class="muted" style="font-size: 18px; max-width: 60ch;">
+            Our iPhone app for recording, transcribing, and summarizing meetings &amp; interviews.
+          </p>
+          <div class="mini-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 20px;">
+            <div class="mini" style="text-align: center;"><h3 style="font-size: 18px; margin-bottom: 6px;">Audio Recording</h3></div>
+            <div class="mini" style="text-align: center;"><h3 style="font-size: 18px; margin-bottom: 6px;">Transcription</h3></div>
+            <div class="mini" style="text-align: center;"><h3 style="font-size: 18px; margin-bottom: 6px;">Summaries</h3></div>
           </div>
         </div>
       </div>
     </section>
 
     <section id="contact">
-      <div class="container grid-2">
-        <div class="card section-card">
-          <h2>Contact</h2>
-          <p class="muted">
-            For business inquiries or general questions, please reach out by email.
-          </p>
-          <p><strong>Email:</strong> <a href="mailto:support@blue-mic.com">support@blue-mic.com</a></p>
-          <p><strong>Company:</strong> Blue Stream Solutions LLC</p>
-        </div>
-        <div class="card section-card">
-          <h2>Privacy</h2>
-          <p class="muted">
-            Blue Stream Solutions LLC is committed to building software with a thoughtful, privacy-conscious approach.
-          </p>
-          <p class="muted">
-            A dedicated privacy policy page can be added here when you are ready to publish it.
-          </p>
+      <div class="container">
+        <div class="card section-card" style="border-top: 1px solid var(--border); border-top-left-radius: 0; border-top-right-radius: 0; box-shadow: none;">
+          <h2 style="font-size: 28px;">Contact</h2>
+          <p><a href="mailto:support@blue-mic.com">support@blue-mic.com</a></p>
         </div>
       </div>
     </section>
@@ -350,10 +295,8 @@
 
   <footer>
     <div class="container">
-      <div class="card footer-card">
-        <div><strong>Blue Stream Solutions LLC</strong></div>
-        <div>Blue Mic is a product of Blue Stream Solutions LLC.</div>
-        <div>© 2026 Blue Stream Solutions LLC. All rights reserved.</div>
+      <div class="card footer-card" style="border-top-left-radius: 0; border-top-right-radius: 0; box-shadow: none; border-top: none;">
+        <div>© 2026 Blue Stream Solutions LLC</div>
       </div>
     </div>
   </footer>
