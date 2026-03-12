@@ -210,6 +210,24 @@
       .mini-grid {
         grid-template-columns: 1fr;
       }
+      .cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn {
+        width: 100%;
+      }
+      .nav-links {
+        gap: 14px;
+        font-size: 13px;
+      }
+    }
+      .hero-main, .hero-side, .section-card {
+        padding: 24px;
+      }
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -231,10 +249,10 @@
             </nav>
           </div>
 
-          <div style="padding: 34px 24px; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 18px; align-items: center; border-bottom: 1px solid var(--border);">
+          <div style="padding: 28px 20px; display: grid; grid-template-columns: 1fr; gap: 18px; align-items: center; border-bottom: 1px solid var(--border);">
             <div>
               <h1 style="font-size: 26px; max-width: 14ch; margin-bottom: 18px;">Building Practical Software for Meetings &amp; Productivity</h1>
-              <p class="lead" style="max-width: 34ch; margin-bottom: 22px;">
+              <p class="lead" style="max-width: 34ch; margin-bottom: 22px; font-size: 16px;">
                 Blue Stream Solutions LLC creates software to help you record, transcribe, and summarize conversations.
               </p>
               <div class="cta-row">
@@ -243,21 +261,12 @@
               </div>
             </div>
             <div style="display: flex; justify-content: center; align-items: center;">
-              <img src="bluemic.png" alt="Blue Mic logo" style="width: min(100%, 320px); height: auto; display: block;" />
+              <img src="bluemic.png" alt="Blue Mic logo" style="width: min(100%, 260px); height: auto; display: block;" />
             </div>
           </div>
 
-          <section id="about" style="padding: 0;">
-            <div style="padding: 28px 24px; border-bottom: 1px solid var(--border);">
-              <h2 style="font-size: 26px; margin-bottom: 12px;">About Blue Stream Solutions</h2>
-              <p class="muted" style="font-size: 18px; max-width: 44ch; margin: 0;">
-                We build simple, useful software to help you manage meetings, notes, and information.
-              </p>
-            </div>
-          </section>
-
           <section id="product" style="padding: 0;">
-            <div style="padding: 28px 24px; border-bottom: 1px solid var(--border);">
+            <div style="padding: 28px 20px; border-bottom: 1px solid var(--border);">
               <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
                 <img src="bluemic.png" alt="Blue Mic icon" style="width: 34px; height: 34px; object-fit: contain;" />
                 <h2 style="font-size: 26px; margin: 0;">Blue Mic</h2>
@@ -265,11 +274,20 @@
               <p class="muted" style="font-size: 18px; max-width: 40ch; margin-top: 0; margin-bottom: 18px;">
                 Our iPhone app for recording, transcribing, and summarizing meetings &amp; interviews.
               </p>
-              <div class="mini-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px;">
+              <div class="mini-grid" style="grid-template-columns: 1fr; gap: 12px;">
                 <div class="mini" style="text-align: center; padding: 16px 12px;"><h3 style="font-size: 18px; margin: 0;">Audio Recording</h3></div>
                 <div class="mini" style="text-align: center; padding: 16px 12px;"><h3 style="font-size: 18px; margin: 0;">Transcription</h3></div>
                 <div class="mini" style="text-align: center; padding: 16px 12px;"><h3 style="font-size: 18px; margin: 0;">Summaries</h3></div>
               </div>
+            </div>
+          </section>
+
+          <section id="about" style="padding: 0;">
+            <div style="padding: 28px 24px; border-bottom: 1px solid var(--border);">
+              <h2 style="font-size: 26px; margin-bottom: 12px;">About Blue Stream Solutions</h2>
+              <p class="muted" style="font-size: 18px; max-width: 44ch; margin: 0;">
+                We build simple, useful software to help you manage meetings, notes, and information.
+              </p>
             </div>
           </section>
 
