@@ -37,82 +37,36 @@
       margin: 0 auto;
     }
 
-    header {
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
-      background: #ffffff;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.2px;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-size: 14px;
-    }
-
-    .hero {
-      padding: 36px 0 30px;
-    }
-
-    .hero-wrap {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
     .card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .hero-main {
-      padding: 42px;
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 15px;
+      justify-content: center;
     }
 
-    .eyebrow {
-      display: inline-block;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(22, 119, 210, 0.08);
-      color: var(--accent-dark);
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 14px;
+    h1, h2, h3 {
+      margin: 0 0 12px;
+      line-height: 1.15;
     }
 
-    h1, h2, h3 { margin: 0 0 12px; line-height: 1.15; }
-    h1 { font-size: clamp(34px, 5vw, 54px); }
-    h2 { font-size: clamp(26px, 4vw, 36px); }
-    h3 { font-size: 20px; }
-
-    .lead {
-      font-size: 18px;
+    .muted {
       color: var(--muted);
-      max-width: 58ch;
-      margin: 0 0 24px;
     }
 
     .cta-row {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      justify-content: center;
       margin-top: 18px;
     }
 
@@ -128,67 +82,46 @@
       transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     }
 
-    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
     .btn-primary {
       background: var(--accent);
       color: #fff;
       box-shadow: 0 10px 20px rgba(22, 119, 210, 0.18);
     }
-    .btn-primary:hover { background: var(--accent-dark); }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
     .btn-secondary {
       background: #fff;
       color: var(--text);
       border-color: var(--border);
     }
 
-    .hero-side {
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: linear-gradient(180deg, #ffffff 0%, #f4f9fe 100%);
-    }
-
-    .feature-list {
-      margin: 14px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .feature-list li { margin-bottom: 10px; }
-
-    section {
-      padding: 20px 0;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .section-card {
-      padding: 28px;
-    }
-
-    .muted { color: var(--muted); }
-
     .mini-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      width: 700px;
+      max-width: 100%;
+      margin: 0 auto 20px;
     }
 
     .mini {
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 16px;
+      padding: 16px 12px;
       background: #fbfdff;
+      text-align: center;
     }
 
     footer {
-      padding: 34px 0 56px;
+      padding: 0 0 40px;
     }
 
     .footer-card {
@@ -198,104 +131,84 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      box-shadow: none;
+      border-top: none;
+      text-align: center;
+      align-items: center;
     }
 
     @media (max-width: 860px) {
-      .hero-wrap, .grid-2 {
-        grid-template-columns: 1fr;
-      }
-      .hero-main, .hero-side, .section-card {
-        padding: 24px;
-      }
-      .mini-grid {
-        grid-template-columns: 1fr;
-      }
-      .cta-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .btn {
-        width: 100%;
-      }
       .nav-links {
         gap: 14px;
         font-size: 13px;
       }
-    }
-      .hero-main, .hero-side, .section-card {
-        padding: 24px;
-      }
+
       .mini-grid {
         grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  
-
   <main id="top">
-    <section class="hero">
-      <div class="container" style="padding-top: 0;">
-        <div class="card" style="overflow: hidden; box-shadow: none;">
+    <section style="padding: 20px 0 0;">
+      <div class="container">
+        <div class="card" style="box-shadow: none;">
           <div style="padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-            <div style="display: flex; align-items: center; gap: 14px;">
-              <img src="bluestreamsolutionsllc.png" alt="Blue Stream Solutions LLC logo" style="width: 190px; height: auto; display: block;" />
-            </div>
-            <nav class="nav-links" aria-label="Main navigation" style="font-size: 15px; gap: 22px;">
+            <img src="bluestreamsolutionsllc.png" alt="Blue Stream Solutions LLC logo" style="width: 190px; height: auto; display: block;" />
+            <nav class="nav-links" aria-label="Main navigation">
               <a href="#about">About</a>
               <a href="#product">Blue Mic</a>
               <a href="#contact">Contact</a>
             </nav>
           </div>
 
-          <div style="padding: 28px 20px; display: grid; grid-template-columns: 1fr; gap: 18px; align-items: center; border-bottom: 1px solid var(--border);">
-            <div>
-              <h1 style="font-size: 26px; max-width: 14ch; margin-bottom: 18px;">Building Practical Software for Meetings &amp; Productivity</h1>
-              <p class="lead" style="max-width: 34ch; margin-bottom: 22px; font-size: 16px;">
-                Blue Stream Solutions LLC creates software to help you record, transcribe, and summarize conversations.
-              </p>
-              <div class="cta-row">
-                <a class="btn btn-primary" href="#contact">Contact Us</a>
-                <a class="btn btn-secondary" href="#product">Learn About Blue Mic</a>
-              </div>
-            </div>
-            <div style="display: flex; justify-content: center; align-items: center;">
-              <img src="bluemic.png" alt="Blue Mic logo" style="width: min(100%, 260px); height: auto; display: block;" />
-            </div>
-          </div>
-
-          <section id="product" style="padding: 0;">
-            <div style="padding: 28px 20px; border-bottom: 1px solid var(--border);">
-              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-                <img src="bluemic.png" alt="Blue Mic icon" style="width: 34px; height: 34px; object-fit: contain;" />
-                <h2 style="font-size: 26px; margin: 0;">Blue Mic</h2>
-              </div>
-              <p class="muted" style="font-size: 18px; max-width: 40ch; margin-top: 0; margin-bottom: 18px;">
-                Our iPhone app for recording, transcribing, and summarizing meetings &amp; interviews.
-              </p>
-              <div class="mini-grid" style="grid-template-columns: 1fr; gap: 12px;">
-                <div class="mini" style="text-align: center; padding: 16px 12px;"><h3 style="font-size: 18px; margin: 0;">Audio Recording</h3></div>
-                <div class="mini" style="text-align: center; padding: 16px 12px;"><h3 style="font-size: 18px; margin: 0;">Transcription</h3></div>
-                <div class="mini" style="text-align: center; padding: 16px 12px;"><h3 style="font-size: 18px; margin: 0;">Summaries</h3></div>
-              </div>
+          <section style="padding: 28px 20px; border-bottom: 1px solid var(--border); text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <h1 style="font-size: 26px; max-width: 14ch; margin-bottom: 18px; text-align: center;">Building Practical Software for Meetings &amp; Productivity</h1>
+            <p class="muted" style="max-width: 34ch; margin: 0 0 22px; font-size: 16px; text-align: center;">
+              Blue Stream Solutions LLC creates software to help you record, transcribe, and summarize conversations.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#contact">Contact Us</a>
+              <a class="btn btn-secondary" href="#product">Learn About Blue Mic</a>
             </div>
           </section>
 
-          <section id="about" style="padding: 0;">
-            <div style="padding: 28px 24px; border-bottom: 1px solid var(--border);">
-              <h2 style="font-size: 26px; margin-bottom: 12px;">About Blue Stream Solutions</h2>
-              <p class="muted" style="font-size: 18px; max-width: 44ch; margin: 0;">
-                We build simple, useful software to help you manage meetings, notes, and information.
-              </p>
+          <section id="product" style="padding: 28px 20px; border-bottom: 1px solid var(--border); text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <h2 style="font-size: 26px; margin: 0 0 10px; text-align: center;">Blue Mic</h2>
+            <p class="muted" style="font-size: 18px; max-width: 40ch; margin: 0 0 18px; text-align: center;">
+              Our iPhone app for recording, transcribing, and summarizing meetings &amp; interviews.
+            </p>
+            <div class="mini-grid">
+              <div class="mini"><h3 style="font-size: 18px; margin: 0;">Audio Recording</h3></div>
+              <div class="mini"><h3 style="font-size: 18px; margin: 0;">Transcription</h3></div>
+              <div class="mini"><h3 style="font-size: 18px; margin: 0;">Summaries</h3></div>
             </div>
+            <img src="bluemic.png" alt="Blue Mic logo" style="width: min(100%, 260px); height: auto; display: block;" />
           </section>
 
-          <section id="contact" style="padding: 0;">
-            <div style="padding: 28px 24px 18px;">
-              <h2 style="font-size: 26px; margin-bottom: 12px;">Contact</h2>
-              <p style="margin: 0 0 14px;"><a href="mailto:support@blue-mic.com">support@blue-mic.com</a></p>
-            </div>
+          <section id="about" style="padding: 28px 20px; border-bottom: 1px solid var(--border); text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <h2 style="font-size: 26px; margin-bottom: 12px; text-align: center;">About Blue Stream Solutions</h2>
+            <p class="muted" style="font-size: 18px; max-width: 44ch; margin: 0; text-align: center;">
+              We build simple, useful software to help you manage meetings, notes, and information.
+            </p>
+          </section>
+
+          <section id="contact" style="padding: 28px 20px 18px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <h2 style="font-size: 26px; margin-bottom: 12px; text-align: center;">Contact</h2>
+            <p style="margin: 0 0 14px; text-align: center;"><a href="mailto:support@blue-mic.com">support@blue-mic.com</a></p>
           </section>
         </div>
       </div>
@@ -304,7 +217,7 @@
 
   <footer>
     <div class="container">
-      <div class="card footer-card" style="border-top-left-radius: 0; border-top-right-radius: 0; box-shadow: none; border-top: none;">
+      <div class="card footer-card">
         <div>© 2026 Blue Stream Solutions LLC</div>
       </div>
     </div>
