@@ -1,226 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blue Stream Solutions LLC</title>
-  <meta name="description" content="Blue Stream Solutions LLC builds practical software tools for meetings, notes, and productivity." />
-  <style>
-    :root {
-      --bg: #ffffff;
-      --card: #ffffff;
-      --text: #1b2f4a;
-      --muted: #62748a;
-      --accent: #1677d2;
-      --accent-dark: #0f5ca3;
-      --border: #e6edf5;
-      --shadow: 0 8px 24px rgba(16, 35, 58, 0.06);
-      --radius: 18px;
-      --max: 1080px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Stream Solutions LLC — Option 2: Wave Morph</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1b2f4a;
+    background: #fafcff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background: #ffffff;
-      line-height: 1.6;
-    }
+  /* ── Nav ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 1.5rem;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(230,237,245,0.6);
+  }
+  nav .logo {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 1.15rem; font-weight: 700; color: #1677d2; text-decoration: none;
+  }
+  nav .logo svg { height: 36px; width: 36px; flex-shrink: 0; }
+  nav .logo .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  nav .logo .logo-text .brand-name { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.04em; color: #1054a0; }
+  nav .logo .logo-text .brand-sub { font-size: 0.55rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #1054a0; }
+  nav .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  nav .nav-links a { color: #1b2f4a; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+  nav .nav-links a:hover { color: #1677d2; }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+  /* ── Hero with SVG wave ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 1.5rem 8rem;
+    background: linear-gradient(180deg, #eaf2fc 0%, #fafcff 100%);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #0a2a5e;
+    opacity: 0; animation: slideIn 0.7s 0.2s forwards;
+  }
+  .hero .tagline {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    color: #4a6a8a;
+    max-width: 500px;
+    margin-top: 0.75rem;
+    opacity: 0; animation: slideIn 0.7s 0.5s forwards;
+  }
+  .hero .cta-group {
+    margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    opacity: 0; animation: slideIn 0.7s 0.8s forwards;
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 
-    .container {
-      width: min(100% - 32px, var(--max));
-      margin: 0 auto;
-    }
+  /* Animated SVG wave divider */
+  .wave-divider {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+  .wave-divider svg { display: block; width: 100%; height: 80px; }
+  .wave-divider .wave-path {
+    animation: waveMorph 8s ease-in-out infinite alternate;
+  }
+  @keyframes waveMorph {
+    0%   { d: path("M0,40 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,80 L0,80 Z"); }
+    100% { d: path("M0,50 C200,10 400,70 600,30 C800,60 1000,20 1200,50 L1200,80 L0,80 Z"); }
+  }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
+  /* ── Buttons ── */
+  .btn {
+    display: inline-block; padding: 0.85rem 2rem; border-radius: 12px;
+    font-size: 1rem; font-weight: 600; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; border: none;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(22,119,210,0.2); }
+  .btn-primary { background: #1677d2; color: #fff; }
+  .btn-outline { background: transparent; color: #1677d2; border: 2px solid #1677d2; }
 
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      font-size: 15px;
-      justify-content: center;
-    }
+  /* ── App Icon ── */
+  .app-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: slideIn 0.7s 1.0s forwards;
+    box-shadow: 0 4px 16px rgba(22,119,210,0.15);
+  }
 
-    h1, h2, h3 {
-      margin: 0 0 12px;
-      line-height: 1.15;
-    }
+  /* ── Audio Waveform Animation ── */
+  .waveform-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin: 2.5rem auto 0;
+    opacity: 0;
+    animation: slideIn 0.7s 1.1s forwards;
+  }
+  .waveform-bar span {
+    display: block;
+    width: 4px;
+    border-radius: 4px;
+    background: #1677d2;
+    animation: barBounce 1.2s ease-in-out infinite;
+  }
+  .waveform-bar span:nth-child(1)  { height: 16px; animation-delay: 0s; }
+  .waveform-bar span:nth-child(2)  { height: 28px; animation-delay: 0.1s; }
+  .waveform-bar span:nth-child(3)  { height: 40px; animation-delay: 0.2s; }
+  .waveform-bar span:nth-child(4)  { height: 52px; animation-delay: 0.3s; }
+  .waveform-bar span:nth-child(5)  { height: 36px; animation-delay: 0.4s; }
+  .waveform-bar span:nth-child(6)  { height: 48px; animation-delay: 0.5s; }
+  .waveform-bar span:nth-child(7)  { height: 32px; animation-delay: 0.6s; }
+  .waveform-bar span:nth-child(8)  { height: 44px; animation-delay: 0.7s; }
+  .waveform-bar span:nth-child(9)  { height: 20px; animation-delay: 0.8s; }
+  .waveform-bar span:nth-child(10) { height: 36px; animation-delay: 0.9s; }
+  .waveform-bar span:nth-child(11) { height: 24px; animation-delay: 1.0s; }
+  .waveform-bar span:nth-child(12) { height: 16px; animation-delay: 1.1s; }
+  @keyframes barBounce {
+    0%, 100% { transform: scaleY(0.4); opacity: 0.5; }
+    50%      { transform: scaleY(1);   opacity: 1; }
+  }
 
-    .muted {
-      color: var(--muted);
-    }
+  /* ── Sections ── */
+  section { padding: 5rem 1.5rem; max-width: 960px; margin: 0 auto; }
+  .section-label {
+    text-transform: uppercase; font-size: 0.8rem; font-weight: 700;
+    color: #1677d2; letter-spacing: 0.1em; text-align: center; margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700;
+    text-align: center; margin-bottom: 0.5rem;
+  }
+  .section-sub {
+    text-align: center; color: #62748a; margin-bottom: 3rem;
+    max-width: 480px; margin-left: auto; margin-right: auto;
+  }
 
-    .cta-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 18px;
-    }
+  /* ── Feature Steps (timeline style) ── */
+  .steps { display: flex; flex-direction: column; gap: 2.5rem; position: relative; padding-left: 3rem; }
+  .steps::before {
+    content: ''; position: absolute; left: 15px; top: 0; bottom: 0;
+    width: 2px; background: linear-gradient(180deg, #1677d2, #c5dcf5);
+  }
+  .step {
+    position: relative;
+    opacity: 1; transform: translateX(0);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .step.hidden { opacity: 0; transform: translateX(-20px); }
+  .step.visible { opacity: 1; transform: translateX(0); }
+  .step-dot {
+    position: absolute; left: -3rem; top: 4px;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #1677d2; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700;
+  }
+  .step h3 { font-size: 1.2rem; margin-bottom: 0.3rem; }
+  .step p  { color: #62748a; font-size: 0.95rem; }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    }
+  /* ── About ── */
+  #about { text-align: center; }
+  #about p { color: #62748a; max-width: 580px; margin: 0 auto 1rem; }
 
-    .btn:hover {
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
+  /* ── Contact ── */
+  .contact-card {
+    background: linear-gradient(135deg, #0a2a5e, #1677d2);
+    border-radius: 20px; padding: 3rem 2rem; text-align: center;
+    max-width: 600px; margin: 0 auto 4rem; color: #fff;
+  }
+  .contact-card h2 { margin-bottom: 0.5rem; }
+  .contact-card p  { color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; }
+  .contact-card a.btn-primary { background: #fff; color: #1677d2; }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 10px 20px rgba(22, 119, 210, 0.18);
-    }
+  /* ── Footer ── */
+  footer {
+    text-align: center; padding: 2rem 1rem; font-size: 0.85rem;
+    color: #62748a; border-top: 1px solid #e6edf5;
+  }
 
-    .btn-primary:hover {
-      background: var(--accent-dark);
-    }
-
-    .btn-secondary {
-      background: #fff;
-      color: var(--text);
-      border-color: var(--border);
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      width: 700px;
-      max-width: 100%;
-      margin: 0 auto 20px;
-    }
-
-    .mini {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 12px;
-      background: #fbfdff;
-      text-align: center;
-    }
-
-    footer {
-      padding: 0 0 40px;
-    }
-
-    .footer-card {
-      padding: 22px 24px;
-      font-size: 14px;
-      color: var(--muted);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      box-shadow: none;
-      border-top: none;
-      text-align: center;
-      align-items: center;
-    }
-
-    @media (max-width: 860px) {
-      .nav-links {
-        gap: 14px;
-        font-size: 13px;
-      }
-
-      .mini-grid {
-        grid-template-columns: 1fr;
-        width: 100%;
-      }
-
-      .cta-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-    }
-  </style>
+  @media (max-width: 640px) {
+    .app-icon { width: 40px; height: 40px; }
+    nav .logo svg { height: 30px; width: 30px; }
+    nav .logo .logo-text .brand-name { font-size: 0.75rem; }
+    nav .logo .logo-text .brand-sub { font-size: 0.48rem; }
+    nav .nav-links { gap: 1rem; }
+    nav .nav-links a { font-size: 0.85rem; }
+    .waveform-bar span { width: 3px; }
+  }
+</style>
 </head>
 <body>
-  <main id="top">
-    <section style="padding: 20px 0 0;">
-      <div class="container">
-        <div class="card" style="box-shadow: none;">
-          <div style="padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-            <img src="bluestreamsolutionsllc.png" alt="Blue Stream Solutions LLC logo" style="width: 190px; height: auto; display: block;" />
-            <nav class="nav-links" aria-label="Main navigation">
-              <a href="#about">About</a>
-              <a href="#product">Blue Mic</a>
-              <a href="#contact">Contact</a>
-            </nav>
-          </div>
 
-          <section style="padding: 28px 20px; border-bottom: 1px solid var(--border); text-align: center; display: flex; flex-direction: column; align-items: center;">
-            <h1 style="font-size: 26px; max-width: 14ch; margin-bottom: 18px; text-align: center;">Building Practical Software for Meetings &amp; Productivity</h1>
-            <p class="muted" style="max-width: 34ch; margin: 0 0 22px; font-size: 16px; text-align: center;">
-              Blue Stream Solutions LLC creates software to help you record, transcribe, and summarize conversations.
-            </p>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="#contact">Contact Us</a>
-              <a class="btn btn-secondary" href="#product">Learn About Blue Mic</a>
-            </div>
-          </section>
+<nav>
+  <a href="#" class="logo">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer circle -->
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#1054a0" stroke-width="4"/>
+      <!-- Inner accent arc -->
+      <path d="M 18 50 A 32 32 0 0 1 50 18" fill="none" stroke="#1677d2" stroke-width="3" stroke-linecap="round"/>
+      <!-- Wave curl -->
+      <path d="M 30 62 C 30 62, 28 42, 42 36 C 56 30, 60 44, 52 50 C 44 56, 36 48, 44 42 C 50 38, 54 42, 50 46"
+            fill="none" stroke="#1054a0" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Lower wave -->
+      <path d="M 30 62 C 38 72, 58 72, 70 58" fill="none" stroke="#1054a0" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+    <span class="logo-text">
+      <span class="brand-name">BLUE STREAM</span>
+      <span class="brand-sub">Solutions LLC</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Blue Mic</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-          <section id="product" style="padding: 28px 20px; border-bottom: 1px solid var(--border); text-align: center; display: flex; flex-direction: column; align-items: center;">
-            <h2 style="font-size: 26px; margin: 0 0 10px; text-align: center;">Blue Mic</h2>
-            <p class="muted" style="font-size: 18px; max-width: 40ch; margin: 0 0 18px; text-align: center;">
-              Our iPhone app for recording, transcribing, and summarizing meetings &amp; interviews.
-            </p>
-            <div class="mini-grid">
-              <div class="mini"><h3 style="font-size: 18px; margin: 0;">Audio Recording</h3></div>
-              <div class="mini"><h3 style="font-size: 18px; margin: 0;">Transcription</h3></div>
-              <div class="mini"><h3 style="font-size: 18px; margin: 0;">Summaries</h3></div>
-            </div>
-            <img src="bluemic.png" alt="Blue Mic logo" style="width: min(100%, 260px); height: auto; display: block;" />
-          </section>
+<header class="hero">
+  <h1>Record. Transcribe. Summarize.</h1>
+  <p class="tagline">Blue Mic turns every meeting into searchable, shareable knowledge — automatically.</p>
+  <div class="cta-group">
+    <a href="#features" class="btn btn-primary">See How It Works</a>
+    <a href="#contact" class="btn btn-outline">Contact Us</a>
+  </div>
+  <div class="waveform-bar">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="wave-divider">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path class="wave-path" fill="#fafcff"
+        d="M0,40 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,80 L0,80 Z"/>
+    </svg>
+  </div>
+</header>
 
-          <section id="about" style="padding: 28px 20px; border-bottom: 1px solid var(--border); text-align: center; display: flex; flex-direction: column; align-items: center;">
-            <h2 style="font-size: 26px; margin-bottom: 12px; text-align: center;">About Blue Stream Solutions</h2>
-            <p class="muted" style="font-size: 18px; max-width: 44ch; margin: 0; text-align: center;">
-              We build simple, useful software to help you manage meetings, notes, and information.
-            </p>
-          </section>
-
-          <section id="contact" style="padding: 28px 20px 18px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-            <h2 style="font-size: 26px; margin-bottom: 12px; text-align: center;">Contact</h2>
-            <p style="margin: 0 0 14px; text-align: center;"><a href="mailto:support@blue-mic.com">support@blue-mic.com</a></p>
-          </section>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="card footer-card">
-        <div>© 2026 Blue Stream Solutions LLC</div>
-      </div>
+<section id="features">
+  <img src="bluemic.png" alt="Blue Mic" class="app-icon" style="display:block; margin: 0 auto 1.5rem;">
+  <p class="section-label">How It Works</p>
+  <h2 class="section-title">Three Steps to Clarity</h2>
+  <p class="section-sub">From raw audio to actionable insight in seconds.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-dot">1</div>
+      <h3>🎙 Record</h3>
+      <p>Tap once to capture crystal-clear audio from any meeting, lecture, or conversation on your iPhone.</p>
     </div>
-  </footer>
+    <div class="step">
+      <div class="step-dot">2</div>
+      <h3>📝 Transcribe</h3>
+      <p>Audio is automatically converted into accurate, searchable text — no manual work needed.</p>
+    </div>
+    <div class="step">
+      <div class="step-dot">3</div>
+      <h3>✨ Summarize</h3>
+      <p>Get concise, AI-powered summaries highlighting key decisions, action items, and takeaways.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <p class="section-label">About Us</p>
+  <h2 class="section-title">Simple, Useful Software</h2>
+  <p>Blue Stream Solutions builds practical tools to help you manage meetings, notes, and information. We believe the best software disappears — it just works.</p>
+  <p>Blue Mic is our flagship iPhone app, built from the ground up to make capturing and understanding conversations effortless.</p>
+</section>
+
+<section id="contact">
+  <div class="contact-card">
+    <h2>Get in Touch</h2>
+    <p>Questions, feedback, or partnership ideas — we'd love to hear from you.</p>
+    <a href="mailto:support@blue-mic.com" class="btn btn-primary">support@blue-mic.com</a>
+  </div>
+</section>
+
+<footer>&copy; 2026 Blue Stream Solutions LLC. All rights reserved.</footer>
+
+<script>
+  // Hide steps via JS so they animate in on scroll.
+  // If JS doesn't run (e.g. local file on iOS), steps stay visible by default.
+  const steps = document.querySelectorAll('.step');
+  steps.forEach(el => el.classList.add('hidden'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.remove('hidden');
+          entry.target.classList.add('visible');
+        }, i * 200);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  steps.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
