@@ -20,15 +20,14 @@
     position: fixed; top: 0; width: 100%; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
     padding: 1rem 1.5rem;
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(230,237,245,0.6);
+    background: #ffffff;
+    border-bottom: 1px solid #e6edf5;
   }
   nav .logo {
     display: flex; align-items: center;
     text-decoration: none;
   }
-  nav .logo img { height: 90px; width: auto; }
+  nav .logo img { height: 110px; width: auto; }
   nav .nav-links { display: flex; gap: 1.5rem; list-style: none; }
   nav .nav-links a { color: #1b2f4a; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
   nav .nav-links a:hover { color: #1677d2; }
@@ -98,7 +97,7 @@
 
   /* ── App Icon ── */
   .app-icon {
-    width: 48px; height: 48px;
+    width: 70px; height: 70px;
     border-radius: 12px;
     margin-top: 2rem;
     opacity: 0;
@@ -199,8 +198,8 @@
   }
 
   @media (max-width: 640px) {
-    .app-icon { width: 40px; height: 40px; }
-    nav .logo img { height: 60px; }
+    .app-icon { width: 58px; height: 58px; }
+    nav .logo img { height: 75px; }
     nav .nav-links { gap: 1rem; }
     nav .nav-links a { font-size: 0.85rem; }
     .waveform-bar span { width: 3px; }
