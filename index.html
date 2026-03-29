@@ -20,14 +20,15 @@
     position: fixed; top: 0; width: 100%; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
     padding: 1rem 1.5rem;
-    background: #ffffff;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(230,237,245,0.6);
   }
   nav .logo {
     display: flex; align-items: center;
     text-decoration: none;
   }
-  nav .logo img { height: 120px; width: auto; }
+  nav .logo img { height: 90px; width: auto; }
   nav .nav-links { display: flex; gap: 1.5rem; list-style: none; }
   nav .nav-links a { color: #1b2f4a; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
   nav .nav-links a:hover { color: #1677d2; }
@@ -97,7 +98,7 @@
 
   /* ── App Icon ── */
   .app-icon {
-    width: 55px; height: 55px;
+    width: 48px; height: 48px;
     border-radius: 12px;
     margin-top: 2rem;
     opacity: 0;
@@ -176,7 +177,6 @@
   }
   .step h3 { font-size: 1.2rem; margin-bottom: 0.3rem; }
   .step p  { color: #62748a; font-size: 0.95rem; }
-  .step-icon { width: 64px; height: 64px; margin-bottom: 0.6rem; }
 
   /* ── About ── */
   #about { text-align: center; }
@@ -199,8 +199,8 @@
   }
 
   @media (max-width: 640px) {
-    .app-icon { width: 46px; height: 46px; }
-    nav .logo img { height: 80px; }
+    .app-icon { width: 40px; height: 40px; }
+    nav .logo img { height: 60px; }
     nav .nav-links { gap: 1rem; }
     nav .nav-links a { font-size: 0.85rem; }
     .waveform-bar span { width: 3px; }
@@ -247,90 +247,17 @@
   <div class="steps">
     <div class="step">
       <div class="step-dot">1</div>
-      <svg class="step-icon" viewBox="0 0 160 155" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="sg1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#4d8fff"/><stop offset="100%" style="stop-color:#1a5ed9"/></linearGradient>
-          <linearGradient id="sc1" x1="20%" y1="0%" x2="20%" y2="100%"><stop offset="0%" style="stop-color:#82b4ff"/><stop offset="40%" style="stop-color:#1a5ed9"/><stop offset="100%" style="stop-color:#0f3ea8"/></linearGradient>
-          <linearGradient id="so1" x1="0%" y1="0%" x2="0%" y2="60%"><stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/></linearGradient>
-          <filter id="sh1"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#b0c8e8" flood-opacity="0.5"/></filter>
-          <clipPath id="cc1"><rect x="0" y="0" width="160" height="155" rx="28"/></clipPath>
-        </defs>
-        <rect x="0" y="0" width="160" height="155" rx="28" fill="#ffffff" stroke="#c8d9f0" stroke-width="1.5" filter="url(#sh1)"/>
-        <polygon points="0,130 35,82 65,104 95,65 135,90 160,130" fill="#d8e8f7" clip-path="url(#cc1)"/>
-        <g clip-path="url(#cc1)">
-          <rect x="2"   y="107" width="7" height="14" rx="3.5" fill="#3a7de0" opacity="0.35"/>
-          <rect x="11"  y="89"  width="7" height="36" rx="3.5" fill="url(#sg1)" opacity="0.8"/>
-          <rect x="20"  y="100" width="7" height="22" rx="3.5" fill="#3a7de0" opacity="0.5"/>
-          <rect x="29"  y="85"  width="7" height="44" rx="3.5" fill="url(#sg1)" opacity="0.85"/>
-          <rect x="38"  y="105" width="7" height="18" rx="3.5" fill="#3a7de0" opacity="0.38"/>
-          <rect x="47"  y="87"  width="7" height="40" rx="3.5" fill="url(#sg1)" opacity="0.78"/>
-          <rect x="56"  y="97"  width="7" height="28" rx="3.5" fill="#3a7de0" opacity="0.55"/>
-          <rect x="65"  y="82"  width="7" height="50" rx="3.5" fill="url(#sg1)" opacity="0.9"/>
-          <rect x="74"  y="103" width="7" height="20" rx="3.5" fill="#3a7de0" opacity="0.4"/>
-          <rect x="91"  y="103" width="7" height="20" rx="3.5" fill="#3a7de0" opacity="0.4"/>
-          <rect x="100" y="82"  width="7" height="50" rx="3.5" fill="url(#sg1)" opacity="0.9"/>
-          <rect x="109" y="97"  width="7" height="28" rx="3.5" fill="#3a7de0" opacity="0.55"/>
-          <rect x="118" y="87"  width="7" height="40" rx="3.5" fill="url(#sg1)" opacity="0.78"/>
-          <rect x="127" y="105" width="7" height="18" rx="3.5" fill="#3a7de0" opacity="0.38"/>
-          <rect x="136" y="85"  width="7" height="44" rx="3.5" fill="url(#sg1)" opacity="0.85"/>
-          <rect x="145" y="100" width="7" height="22" rx="3.5" fill="#3a7de0" opacity="0.5"/>
-        </g>
-        <rect x="63" y="8"  width="34" height="54" rx="17" fill="url(#sc1)"/>
-        <rect x="68" y="12" width="12" height="26" rx="6" fill="white" opacity="0.38"/>
-        <path d="M50 48 Q50 90 80 90 Q110 90 110 48" fill="none" stroke="url(#sg1)" stroke-width="11" stroke-linecap="round"/>
-        <line x1="80" y1="90" x2="80" y2="114" stroke="url(#sg1)" stroke-width="9" stroke-linecap="round"/>
-        <rect x="0" y="0" width="160" height="65" rx="28" fill="url(#so1)" clip-path="url(#cc1)"/>
-      </svg>
-      <h3>Record</h3>
+      <h3>🎙 Record</h3>
       <p>Tap once to capture crystal-clear audio from any meeting, lecture, or conversation on your iPhone.</p>
     </div>
     <div class="step">
       <div class="step-dot">2</div>
-      <svg class="step-icon" viewBox="0 0 160 155" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="sg2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#4d8fff"/><stop offset="100%" style="stop-color:#1a5ed9"/></linearGradient>
-          <linearGradient id="so2" x1="0%" y1="0%" x2="0%" y2="60%"><stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/></linearGradient>
-          <filter id="sh2"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#b0c8e8" flood-opacity="0.5"/></filter>
-          <clipPath id="cc2"><rect x="0" y="0" width="160" height="155" rx="28"/></clipPath>
-        </defs>
-        <rect x="0" y="0" width="160" height="155" rx="28" fill="#ffffff" stroke="#c8d9f0" stroke-width="1.5" filter="url(#sh2)"/>
-        <polygon points="0,130 35,82 65,104 95,65 135,90 160,130" fill="#d8e8f7" clip-path="url(#cc2)"/>
-        <rect x="48" y="22" width="64" height="84" rx="8" fill="url(#sg2)" opacity="0.15"/>
-        <rect x="48" y="22" width="64" height="84" rx="8" fill="none" stroke="url(#sg2)" stroke-width="3"/>
-        <polyline points="92,22 112,22 112,42 92,42 92,22" fill="#ffffff" stroke="#3a7de0" stroke-width="2.5"/>
-        <line x1="92" y1="22" x2="112" y2="42" stroke="#3a7de0" stroke-width="2.5"/>
-        <line x1="60" y1="52" x2="104" y2="52" stroke="#3a7de0" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="60" y1="64" x2="100" y2="64" stroke="#3a7de0" stroke-width="3.5" stroke-linecap="round" opacity="0.7"/>
-        <line x1="60" y1="76" x2="96"  y2="76" stroke="#3a7de0" stroke-width="3.5" stroke-linecap="round" opacity="0.5"/>
-        <circle cx="100" cy="98" r="14" fill="url(#sg2)"/>
-        <rect x="95" y="90" width="10" height="15" rx="5" fill="white" opacity="0.9"/>
-        <path d="M92 101 Q92 109 100 109 Q108 109 108 101" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-        <line x1="100" y1="109" x2="100" y2="112" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-        <rect x="0" y="0" width="160" height="65" rx="28" fill="url(#so2)" clip-path="url(#cc2)"/>
-      </svg>
-      <h3>Transcribe</h3>
+      <h3>📝 Transcribe</h3>
       <p>Audio is automatically converted into accurate, searchable text — no manual work needed.</p>
     </div>
     <div class="step">
       <div class="step-dot">3</div>
-      <svg class="step-icon" viewBox="0 0 160 155" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="sg3" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#4d8fff"/><stop offset="100%" style="stop-color:#1a5ed9"/></linearGradient>
-          <linearGradient id="so3" x1="0%" y1="0%" x2="0%" y2="60%"><stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/></linearGradient>
-          <filter id="sh3"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#b0c8e8" flood-opacity="0.5"/></filter>
-          <clipPath id="cc3"><rect x="0" y="0" width="160" height="155" rx="28"/></clipPath>
-        </defs>
-        <rect x="0" y="0" width="160" height="155" rx="28" fill="#ffffff" stroke="#c8d9f0" stroke-width="1.5" filter="url(#sh3)"/>
-        <polygon points="0,130 35,82 65,104 95,65 135,90 160,130" fill="#d8e8f7" clip-path="url(#cc3)"/>
-        <path d="M35 30 L38 42 L50 45 L38 48 L35 60 L32 48 L20 45 L32 42 Z" fill="url(#sg3)" opacity="0.85"/>
-        <line x1="15"  y1="72" x2="145" y2="72" stroke="#3a7de0" stroke-width="4" stroke-linecap="round"/>
-        <line x1="20"  y1="84" x2="140" y2="84" stroke="#3a7de0" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
-        <line x1="27"  y1="96" x2="133" y2="96" stroke="#3a7de0" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
-        <path d="M55 108 L80 126 L105 108" fill="none" stroke="url(#sg3)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M132 98 L134 105 L141 107 L134 109 L132 116 L130 109 L123 107 L130 105 Z" fill="#3a7de0" opacity="0.6"/>
-        <rect x="0" y="0" width="160" height="65" rx="28" fill="url(#so3)" clip-path="url(#cc3)"/>
-      </svg>
-      <h3>Summarize</h3>
+      <h3>✨ Summarize</h3>
       <p>Get concise, AI-powered summaries highlighting key decisions, action items, and takeaways.</p>
     </div>
   </div>
@@ -347,13 +274,13 @@
   <div class="contact-card">
     <h2>Get in Touch</h2>
     <p>Questions, feedback, or partnership ideas — we'd love to hear from you.</p>
-    <a href="/cdn-cgi/l/email-protection#582b2d2828372a2c183a342d3d7535313b763b3735" class="btn btn-primary"><span class="__cf_email__" data-cfemail="f5868085859a8781b597998090d8989c96db969a98">[email&#160;protected]</span></a>
+    <a href="mailto:support@blue-mic.com" class="btn btn-primary">support@blue-mic.com</a>
   </div>
 </section>
 
 <footer>&copy; 2026 Blue Stream Solutions LLC. All rights reserved.</footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Hide steps via JS so they animate in on scroll.
   // If JS doesn't run (e.g. local file on iOS), steps stay visible by default.
   const steps = document.querySelectorAll('.step');
@@ -363,4 +290,14 @@
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
-          entry.target.classLis
+          entry.target.classList.remove('hidden');
+          entry.target.classList.add('visible');
+        }, i * 200);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  steps.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
