@@ -1543,3 +1543,21 @@ section { padding: clamp(72px, 10vw, 132px) 0; position: relative; }
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ----------------------------------------------------------
+   Blue Stream Solutions intro band (above hero)
+   ---------------------------------------------------------- */
+.bss-intro {
+  background: linear-gradient(180deg, white 0%, var(--bg-soft) 100%);
+  border-bottom: 1px solid var(--line-soft);
+  padding: clamp(28px, 4vw, 44px) 0;
+}
+.bss-intro-text {
+  max-width: 780px;
+  margin: 0 auto;
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.7;
+  color: var(--ink-2);
+  text-align: center;
+}
