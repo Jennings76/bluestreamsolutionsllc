@@ -25,18 +25,22 @@
 <header class="nav">
   <div class="container nav-row">
     <a href="#top" class="brand" aria-label="Blue Stream Solutions home">
-      <svg class="logo" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="lg" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-            <stop offset="0%"  stop-color="#3B82F6"/>
-            <stop offset="55%" stop-color="#1E5FE6"/>
-            <stop offset="100%" stop-color="#1E3A8A"/>
-          </linearGradient>
-        </defs>
-        <path d="M27 9.5 A14 14 0 1 0 27 26.5" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linecap="round"/>
-        <path d="M11 18 q 3.5 -4 7 0 t 7 0" fill="none" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round"/>
-      </svg>
-      <span>Blue Stream Solutions</span>
+      <img src="bluestreamsolutionsllc.png" alt="Blue Stream Solutions LLC" class="brand-img"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <span class="brand-fallback" style="display:none; align-items:center; gap:10px;">
+        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:32px;height:32px;">
+          <defs>
+            <linearGradient id="lg" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+              <stop offset="0%"  stop-color="#3B82F6"/>
+              <stop offset="55%" stop-color="#1E5FE6"/>
+              <stop offset="100%" stop-color="#1E3A8A"/>
+            </linearGradient>
+          </defs>
+          <path d="M27 9.5 A14 14 0 1 0 27 26.5" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M11 18 q 3.5 -4 7 0 t 7 0" fill="none" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        Blue Stream Solutions
+      </span>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#works">How It Works</a>
