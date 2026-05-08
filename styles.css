@@ -1548,14 +1548,14 @@ section { padding: clamp(72px, 10vw, 132px) 0; position: relative; }
    Blue Stream Solutions brand logo (nav)
    ---------------------------------------------------------- */
 .brand-img {
-  height: 48px;
+  height: 56px;
   width: auto;
-  max-width: 240px;
+  max-width: 280px;
   display: block;
   object-fit: contain;
 }
 @media (max-width: 760px) {
-  .brand-img { height: 40px; max-width: 200px; }
+  .brand-img { height: 48px; max-width: 240px; }
 }
 
 /* ----------------------------------------------------------
