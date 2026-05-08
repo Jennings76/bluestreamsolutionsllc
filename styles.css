@@ -1560,18 +1560,52 @@ section { padding: clamp(72px, 10vw, 132px) 0; position: relative; }
 
 /* ----------------------------------------------------------
    Blue Stream Solutions intro band (above hero)
+   Hybrid: small eyebrow + editorial pull-quote + supporting copy
    ---------------------------------------------------------- */
 .bss-intro {
   background: linear-gradient(180deg, white 0%, var(--bg-soft) 100%);
   border-bottom: 1px solid var(--line-soft);
-  padding: clamp(28px, 4vw, 44px) 0;
+  padding: clamp(48px, 7vw, 84px) 0;
 }
-.bss-intro-text {
+.bss-intro-inner {
   max-width: 780px;
   margin: 0 auto;
-  font-family: var(--font-sans);
-  font-size: clamp(15px, 1.6vw, 17px);
-  line-height: 1.7;
-  color: var(--ink-2);
   text-align: center;
+}
+.bss-intro-eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 22px;
+}
+.bss-intro-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4.2vw, 44px);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0 0 32px;
+}
+.bss-intro-quote .italic {
+  font-style: italic;
+  color: var(--blue);
+}
+.bss-intro-copy {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.bss-intro-copy p {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+.bss-intro-copy p:last-child {
+  margin-bottom: 0;
 }
