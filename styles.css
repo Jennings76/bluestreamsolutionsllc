@@ -345,8 +345,8 @@ section { padding: clamp(72px, 10vw, 132px) 0; position: relative; }
   50%      { opacity: 1;   transform: translateX(-50%) scale(1.06); }
 }
 .hero-mark {
-  width: 112px;
-  height: 112px;
+  width: 128px;
+  height: 128px;
   margin: 0 auto 28px;
   position: relative;
 }
