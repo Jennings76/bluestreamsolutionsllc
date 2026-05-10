@@ -1704,32 +1704,40 @@ body {
   }
 }
 
-/* "Who we are" card — translucent panel matching the security-callout
-   treatment, but narrower and tighter so it sits as a small calling card
-   rather than filling the section. Includes a thin blue gradient accent
-   along the top edge that mirrors the stats ribbon. */
+/* "Who we are" card — asymmetric side-rule accent treatment. A subtle
+   frosted-glass panel with a 2px blue stripe down the left edge serves
+   as a quiet visual anchor without enclosing the content in a full
+   bordered box. Echoes the security-callout treatment in a smaller,
+   tighter footprint. */
 .bss-intro {
   /* Move the card higher on the page by trimming top padding */
   padding-top: clamp(20px, 3vw, 36px);
 }
 .bss-intro-inner {
-  max-width: 600px;
-  padding: clamp(20px, 2.6vw, 28px) clamp(28px, 4vw, 44px);
-  background: rgba(255, 255, 255, 0.45);
-  border: 1px solid var(--line-soft);
+  max-width: 580px;
+  padding: clamp(18px, 2.4vw, 24px) clamp(24px, 3.5vw, 32px)
+           clamp(18px, 2.4vw, 24px) clamp(26px, 3.8vw, 34px);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  border-left: 2px solid var(--blue);
   border-radius: var(--radius);
-  box-shadow: 0 4px 18px rgba(11, 18, 32, 0.08);
-  position: relative;
-  overflow: hidden;
+  box-shadow: none;
+  text-align: left;
 }
 .bss-intro-inner::before {
-  /* Thin blue gradient accent at top edge — same treatment as stats-ribbon */
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--blue-bright), var(--blue), var(--blue-deep));
-  opacity: 0.5;
+  /* No top accent — the left rule carries the visual anchor */
+  display: none;
+}
+.bss-intro .bss-intro-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  margin-bottom: 12px;
+}
+.bss-intro .bss-intro-copy p {
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 /* Mobile — slightly heavier tint for legibility over busier crops */
