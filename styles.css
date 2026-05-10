@@ -1626,7 +1626,7 @@ section { padding: clamp(72px, 10vw, 132px) 0; position: relative; }
   overflow: hidden;
   /* Poster image as CSS background — shows instantly on first paint,
      before either video has any frames ready. Eliminates load flicker. */
-  background-image: url('hero-poster.jpg?v=3');
+  background-image: url('hero-poster.jpg?v=5');
   background-size: cover;
   background-position: center 60%;
   background-color: #0B1220;
