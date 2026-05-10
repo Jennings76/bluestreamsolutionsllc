@@ -42,7 +42,7 @@
     var vidB = document.querySelector('.page-bg-video--b');
     if (!vidA || !vidB) return;
 
-    var FADE = 0.7; // seconds of crossfade overlap at loop boundary
+    var FADE = 1.1; // seconds of crossfade overlap at loop boundary
 
     /* Reveal the active video once it actually has frames painting */
     vidA.addEventListener('playing', function reveal() {
