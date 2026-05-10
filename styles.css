@@ -1669,8 +1669,8 @@ body {
 .stats-ribbon {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.82) 0%,
-    rgba(245, 248, 255, 0.82) 100%
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(245, 248, 255, 0.72) 100%
   );
 }
 
