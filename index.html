@@ -19,15 +19,71 @@
 </head>
 <body>
 
-<!-- Fixed-background ambient cascade video -->
+<!-- Fixed-background ambient cascade video.
+     Two stacked videos handle the loop via JS crossfade so there is no
+     visible seam at the loop boundary. Cache-busting query string forces
+     fresh fetches when the asset is updated. -->
 <div class="page-bg" aria-hidden="true">
-  <video class="page-bg-video"
-         autoplay muted loop playsinline preload="metadata"
-         poster="hero-poster.jpg">
-    <source src="hero-stream-prod.mp4" type="video/mp4" />
+  <video class="page-bg-video page-bg-video--a"
+         autoplay muted playsinline preload="auto">
+    <source src="hero-stream-prod.mp4?v=3" type="video/mp4" />
+  </video>
+  <video class="page-bg-video page-bg-video--b"
+         muted playsinline preload="auto">
+    <source src="hero-stream-prod.mp4?v=3" type="video/mp4" />
   </video>
   <div class="page-bg-tint"></div>
 </div>
+<script>
+  /* Smooth fade-in of first video over the CSS poster, plus seamless
+     loop via crossfade between two video elements. */
+  (function() {
+    var vidA = document.querySelector('.page-bg-video--a');
+    var vidB = document.querySelector('.page-bg-video--b');
+    if (!vidA || !vidB) return;
+
+    var FADE = 0.7; // seconds of crossfade overlap at loop boundary
+
+    /* Reveal the active video once it actually has frames painting */
+    vidA.addEventListener('playing', function reveal() {
+      vidA.classList.add('is-active');
+      vidA.removeEventListener('playing', reveal);
+    });
+
+    /* Watch the active video's currentTime; when nearing the end,
+       start the inactive video at 0 and crossfade the active out. */
+    function watchForSwap(active, inactive) {
+      function onTime() {
+        if (!active.duration || isNaN(active.duration)) return;
+        if (active.currentTime >= active.duration - FADE) {
+          active.removeEventListener('timeupdate', onTime);
+          inactive.currentTime = 0;
+          var p = inactive.play();
+          if (p && typeof p.catch === 'function') p.catch(function(){});
+          inactive.classList.add('is-active');
+          active.classList.remove('is-active');
+          /* After fade completes, pause and rewind the now-inactive */
+          setTimeout(function() {
+            active.pause();
+            active.currentTime = 0;
+          }, FADE * 1000);
+          /* Set up next swap going the other direction */
+          watchForSwap(inactive, active);
+        }
+      }
+      active.addEventListener('timeupdate', onTime);
+    }
+
+    /* Start the swap loop once vidA has metadata */
+    if (vidA.readyState >= 1) {
+      watchForSwap(vidA, vidB);
+    } else {
+      vidA.addEventListener('loadedmetadata', function() {
+        watchForSwap(vidA, vidB);
+      }, { once: true });
+    }
+  })();
+</script>
 
 <div class="bg-stage" aria-hidden="true"></div>
 
