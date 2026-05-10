@@ -1706,14 +1706,30 @@ body {
 
 /* "Who we are" card — translucent panel matching the security-callout
    treatment, but narrower and tighter so it sits as a small calling card
-   rather than filling the section. */
+   rather than filling the section. Includes a thin blue gradient accent
+   along the top edge that mirrors the stats ribbon. */
+.bss-intro {
+  /* Move the card higher on the page by trimming top padding */
+  padding-top: clamp(20px, 3vw, 36px);
+}
 .bss-intro-inner {
   max-width: 600px;
-  padding: clamp(26px, 3.5vw, 36px) clamp(28px, 4vw, 44px);
-  background: rgba(255, 255, 255, 0.65);
+  padding: clamp(20px, 2.6vw, 28px) clamp(28px, 4vw, 44px);
+  background: rgba(255, 255, 255, 0.45);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
   box-shadow: 0 4px 18px rgba(11, 18, 32, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+.bss-intro-inner::before {
+  /* Thin blue gradient accent at top edge — same treatment as stats-ribbon */
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue-bright), var(--blue), var(--blue-deep));
+  opacity: 0.5;
 }
 
 /* Mobile — slightly heavier tint for legibility over busier crops */
