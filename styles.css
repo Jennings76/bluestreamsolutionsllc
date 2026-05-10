@@ -625,7 +625,7 @@ section { padding: clamp(72px, 10vw, 132px) 0; position: relative; }
   width: 36px;
   height: 36px;
   color: var(--blue);
-  margin-bottom: 96px;
+  margin-bottom: 28px;
 }
 .card h3 { margin: 0 0 12px; }
 .card p  { font-size: 15px; line-height: 1.65; color: var(--muted); margin: 0; }
@@ -1608,4 +1608,174 @@ section { padding: clamp(72px, 10vw, 132px) 0; position: relative; }
 }
 .bss-intro-copy p:last-child {
   margin-bottom: 0;
+}
+
+/* ============================================================
+   Fixed-background ambient cascade video
+   The video covers the whole viewport behind all content; a
+   tinted overlay keeps text legible. Sections that previously
+   carried solid/gradient backgrounds become transparent so the
+   cascade shows through subtly across the page.
+   ============================================================ */
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  /* Poster image as CSS background — shows instantly on first paint,
+     before either video has any frames ready. Eliminates load flicker. */
+  background-image: url('hero-poster.jpg?v=7');
+  background-size: cover;
+  background-position: center 60%;
+  background-color: #0B1220;
+}
+
+.page-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;   /* keeps the cascade prominent in frame */
+  opacity: 0;                    /* hidden until JS toggles is-active */
+  transition: opacity 2.5s ease;
+}
+.page-bg-video.is-active {
+  opacity: 1;
+}
+
+.page-bg-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(241, 245, 251, 0.72) 0%,
+    rgba(241, 245, 251, 0.82) 100%
+  );
+}
+
+/* Body and bg-stage transparent so the fixed video is visible */
+body {
+  background: transparent;
+}
+.bg-stage {
+  display: none;
+}
+
+/* Section backgrounds become transparent across the page */
+.bss-intro,
+.hero,
+.security,
+.product,
+.works,
+.faq,
+.three-beats {
+  background: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+/* Stats ribbon keeps a softer translucent gradient — preserves the
+   original elevated card feel while letting a hint of cascade through */
+.stats-ribbon {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(245, 248, 255, 0.72) 100%
+  );
+}
+
+/* Three-beats cards keep semi-transparent surfaces for legibility */
+.three-beats .beat {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Reduced motion — replace video with the original tint */
+@media (prefers-reduced-motion: reduce) {
+  .page-bg-video {
+    display: none;
+  }
+  .page-bg-tint {
+    background: var(--bg);
+  }
+}
+
+/* "Who we are" card — asymmetric side-rule accent treatment. A subtle
+   frosted-glass panel with a 2px blue stripe down the left edge serves
+   as a quiet visual anchor without enclosing the content in a full
+   bordered box. Echoes the security-callout treatment in a smaller,
+   tighter footprint. */
+.bss-intro {
+  /* Move the card higher on the page by trimming top padding */
+  padding-top: clamp(20px, 3vw, 36px);
+}
+.bss-intro-inner {
+  max-width: 580px;
+  padding: clamp(18px, 2.4vw, 24px) clamp(24px, 3.5vw, 32px)
+           clamp(18px, 2.4vw, 24px) clamp(26px, 3.8vw, 34px);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  border-left: 2px solid var(--blue);
+  border-radius: var(--radius);
+  box-shadow: none;
+  text-align: left;
+}
+.bss-intro-inner::before {
+  /* No top accent — the left rule carries the visual anchor */
+  display: none;
+}
+.bss-intro .bss-intro-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  margin-bottom: 12px;
+}
+.bss-intro .bss-intro-copy p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Mobile — slightly heavier tint for legibility over busier crops */
+@media (max-width: 600px) {
+  .page-bg-tint {
+    background: linear-gradient(
+      180deg,
+      rgba(241, 245, 251, 0.80) 0%,
+      rgba(241, 245, 251, 0.88) 100%
+    );
+  }
+}
+
+/* ============================================================
+   Desktop nav: subtle center-out underline animation on hover
+   The line sits flush below the text and expands from the
+   center to both sides on hover/focus. Skipped on mobile,
+   where the burger menu is used instead.
+   ============================================================ */
+@media (min-width: 880px) {
+  .nav-links a {
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1.5px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-links a:hover::after,
+  .nav-links a:focus-visible::after {
+    transform: scaleX(1);
+  }
 }
