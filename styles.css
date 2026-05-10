@@ -1750,3 +1750,32 @@ body {
     );
   }
 }
+
+/* ============================================================
+   Desktop nav: subtle center-out underline animation on hover
+   The line sits flush below the text and expands from the
+   center to both sides on hover/focus. Skipped on mobile,
+   where the burger menu is used instead.
+   ============================================================ */
+@media (min-width: 880px) {
+  .nav-links a {
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1.5px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-links a:hover::after,
+  .nav-links a:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
