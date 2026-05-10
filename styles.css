@@ -1609,3 +1609,86 @@ section { padding: clamp(72px, 10vw, 132px) 0; position: relative; }
 .bss-intro-copy p:last-child {
   margin-bottom: 0;
 }
+
+/* ============================================================
+   Fixed-background ambient cascade video
+   The video covers the whole viewport behind all content; a
+   tinted overlay keeps text legible. Sections that previously
+   carried solid/gradient backgrounds become transparent so the
+   cascade shows through subtly across the page.
+   ============================================================ */
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.page-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;   /* keeps the cascade prominent in frame */
+}
+
+.page-bg-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(241, 245, 251, 0.72) 0%,
+    rgba(241, 245, 251, 0.82) 100%
+  );
+}
+
+/* Body and bg-stage transparent so the fixed video is visible */
+body {
+  background: transparent;
+}
+.bg-stage {
+  display: none;
+}
+
+/* Section backgrounds become transparent across the page */
+.bss-intro,
+.hero,
+.stats-ribbon,
+.security,
+.product,
+.works,
+.faq,
+.three-beats {
+  background: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+/* Three-beats cards keep semi-transparent surfaces for legibility */
+.three-beats .beat {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Reduced motion — replace video with the original tint */
+@media (prefers-reduced-motion: reduce) {
+  .page-bg-video {
+    display: none;
+  }
+  .page-bg-tint {
+    background: var(--bg);
+  }
+}
+
+/* Mobile — slightly heavier tint for legibility over busier crops */
+@media (max-width: 600px) {
+  .page-bg-tint {
+    background: linear-gradient(
+      180deg,
+      rgba(241, 245, 251, 0.80) 0%,
+      rgba(241, 245, 251, 0.88) 100%
+    );
+  }
+}
