@@ -26,11 +26,11 @@
 <div class="page-bg" aria-hidden="true">
   <video class="page-bg-video page-bg-video--a"
          autoplay muted playsinline preload="auto">
-    <source src="hero-stream-prod.mp4?v=5" type="video/mp4" />
+    <source src="hero-stream-prod.mp4?v=6" type="video/mp4" />
   </video>
   <video class="page-bg-video page-bg-video--b"
          muted playsinline preload="auto">
-    <source src="hero-stream-prod.mp4?v=5" type="video/mp4" />
+    <source src="hero-stream-prod.mp4?v=6" type="video/mp4" />
   </video>
   <div class="page-bg-tint"></div>
 </div>
@@ -42,7 +42,7 @@
     var vidB = document.querySelector('.page-bg-video--b');
     if (!vidA || !vidB) return;
 
-    var FADE = 1.1; // seconds of crossfade overlap at loop boundary
+    var FADE = 2.5; // seconds of crossfade overlap at loop boundary
 
     /* Reveal the active video once it actually has frames painting */
     vidA.addEventListener('playing', function reveal() {
