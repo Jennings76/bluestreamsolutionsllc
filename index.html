@@ -587,5 +587,29 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+  /* Alternate the iPhone mockup's status time and recording timer
+     on each page load so the screenshot doesn't feel static.
+     Visit 1 stays original (3:00 top, 6:51 middle); visit 2 swaps;
+     visit 3 stays original; and so on. */
+  (function() {
+    var statusTime = document.querySelector('.iphone-status > span:first-child');
+    var recTimer   = document.querySelector('.rec-timer');
+    if (!statusTime || !recTimer) return;
+
+    /* Clean up storage key from a previous version (no-op if absent) */
+    try { localStorage.removeItem('phoneTimesSwapped'); } catch (e) {}
+
+    var visits = parseInt(localStorage.getItem('phoneVisits') || '0', 10) + 1;
+    localStorage.setItem('phoneVisits', String(visits));
+
+    /* Swap on even-numbered visits (2nd, 4th, 6th, ...) */
+    if (visits % 2 === 0) {
+      var tmp = statusTime.textContent;
+      statusTime.textContent = recTimer.textContent;
+      recTimer.textContent = tmp;
+    }
+  })();
+</script>
 </body>
 </html>
