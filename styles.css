@@ -625,7 +625,7 @@ section { padding: clamp(72px, 10vw, 132px) 0; position: relative; }
   width: 36px;
   height: 36px;
   color: var(--blue);
-  margin-bottom: 96px;
+  margin-bottom: 28px;
 }
 .card h3 { margin: 0 0 12px; }
 .card p  { font-size: 15px; line-height: 1.65; color: var(--muted); margin: 0; }
