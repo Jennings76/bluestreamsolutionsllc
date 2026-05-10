@@ -1654,7 +1654,6 @@ body {
 /* Section backgrounds become transparent across the page */
 .bss-intro,
 .hero,
-.stats-ribbon,
 .security,
 .product,
 .works,
@@ -1663,6 +1662,16 @@ body {
   background: transparent;
   border-top-color: transparent;
   border-bottom-color: transparent;
+}
+
+/* Stats ribbon keeps a softer translucent gradient — preserves the
+   original elevated card feel while letting a hint of cascade through */
+.stats-ribbon {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(245, 248, 255, 0.82) 100%
+  );
 }
 
 /* Three-beats cards keep semi-transparent surfaces for legibility */
